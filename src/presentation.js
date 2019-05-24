@@ -12,6 +12,7 @@ import {
   Quote,
   Slide,
   Text,
+  CodePane,
 } from 'spectacle';
 
 // Import theme
@@ -22,14 +23,14 @@ require('normalize.css');
 
 const theme = createTheme(
   {
-    primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
+    primary: 'blue',
+    secondary: '#282424',
+    tertiary: 'white',
     quaternary: '#CECECE',
   },
   {
-    primary: 'Montserrat',
-    secondary: 'Helvetica',
+    primary: '"Anonymous Pro", mono-space',
+    secondary: '"Press Start 2P"',
   }
 );
 
@@ -41,54 +42,72 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
-          </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
+        <Slide transition={['slide']} bgColor="primary" bgImage="./images/background-3.gif"> 
+
+          <Text textFont="secondary" margin="10px 0 100px" textColor="secondary " textSize="22">
+            redux-saga<br/> & side effects 
+          </Text>
+
+          <Text textFont="secondary" margin="10px 0 100px" textColor="primary" textSize="20">
+          @ react-ba
+          </Text>
+          
+
+        </Slide>
+
+        <Slide transition={['slide']} bgColor="secondary">
+          <Text textFont="secondary" margin="10px 0 100px" textColor="tertiary" textFont="secondary" textSize="16">
+          <marquee scrollamount="12">pablo gustavo bacchetta</marquee>
+          </Text>
+          
+          <Text margin="10px 0"  textColor="">
+            <img src="http://polbac.xyz/polbac.jpg" alt="" width="400" />
+          </Text>
+
+          <Text margin="10px" textColor="primary" textFont="secondary" textSize="16">
+            @polbac
+          </Text>
+          <Text margin="10px 0 0" textColor="primary" textFont="secondary" textSize="16">
+            github . fb . instg
           </Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
-          </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
+
+        <Slide transition={['slide']} bgColor="tertiary">
+        <Text margin="10px 0 0" textColor="primary" textFont="secondary" textSize="16">
+            working at
+          </Text>
+          <Text margin="10px 0 0" textColor="primary" size={0.5}>
+            <img src="https://www.trocafone.com/assets/img/global/common/logo.png" />
           </Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
+
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Text margin="10px 0 0" textColor="primary" textFont="secondary" textSize="16">
+            buy > repair > sale
+          </Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Text margin="10px 0 0" textColor="primary" textFont="secondary" textSize="16">
+            suricata
+          </Text>
+          <Text margin="10px 0 0" textColor="primary" textSize="16">
+            monolith >> microservices
+          </Text>
+          <Text margin="10px 0 0" textColor="primary" textSize="16">
+          [ account, catalog, cart, checkout ]
+          </Text>
+          
         </Slide>
+
+        <Slide transition={['slide']} bgImage="./images/start.gif" bgColor="tertiary">
+          <Text margin="10px 0 0" textColor="primary" textFont="secondary" textSize="66" className="blink">
+            get start!
+          </Text>
+        </Slide>
+        
+
+
       </Deck>
     );
   }
