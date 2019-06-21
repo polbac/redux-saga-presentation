@@ -1312,6 +1312,33 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
               </Highlight>
           </Slide>
 
+
+          <Slide transition={["slide"]} bgColor="primary" bgImage="./images/end.gif">
+          
+          <Text
+                margin="10px 0 0"
+                textColor="tertiary"
+                textFont="secondary"
+                textSize="16"
+              >
+              this is the end
+            </Text>
+
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="primary" bgImage="./images/ttv.gif">
+          
+          <Text
+                margin="10px 0 0"
+                textColor="yellow"
+                textFont="secondary"
+                textSize="56"
+              >
+              gracias a todxs
+            </Text>
+
+          </Slide>
+
       </Deck>
     );
   }
