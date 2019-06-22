@@ -44,6 +44,7 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
+        progress='none'
         transition={["zoom", "slide"]}
         transitionDuration={500}
         theme={theme}
@@ -200,6 +201,14 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
+        <Slide transition={["zoom"]} bgColor="tertiary">
+          <img src={"images/api-list.png"} width="980" />
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="tertiary">
+          <img src={"images/api-detail.png"} width="980" />
+        </Slide>
+
         <Slide transition={["slide"]} bgColor="secondary">
           <Text
             margin="10px 0 0"
@@ -207,7 +216,7 @@ export default class Presentation extends React.Component {
             textFont="secondary"
             textSize="20"
           >
-              git@github.com:polbac/pokemon-redux-saga.git
+            <a href='https://github.com/polbac/pokemon-redux-saga' style={{color: 'white'}} target='_blank'>github.com/polbac/pokemon-redux-saga</a>
           </Text>
         </Slide>
 
@@ -437,7 +446,7 @@ const store = createStore(
             textFont="secondary"
             textSize="16"
           >
-            thunk
+            thunk en programación funcional
           </Text>
         <Highlight className="javascript" style={{ fontSize: 2 }}>
 {`
@@ -449,7 +458,7 @@ const hacerAlgoLuego = (thunkSumar) => {
 
 const thunkSumar = () => sumar(10, 20)
 
-doSomethingLater(thunkSumar)
+hacerAlgoLuego(thunkSumar)
 
 `}
           </Highlight>
@@ -482,27 +491,38 @@ export const fetchItems = dispatch =>
 
         <Slide transition={["slide"]} bgColor="secondary">
         <Highlight className="javascript" style={{ fontSize: 2 }}>
-{`const action: {type: string} = ({ type: ACTION_TYPE_NAME })
-/*
+{`/*
 1. Un action creator devuelve un objeto
 2. El objeto tiene un type y más información
 */
+const action: {type: string} = ({ type: ACTION_TYPE_NAME })
 `}
           </Highlight>
         </Slide>
 
         <Slide transition={["slide"]} bgColor="secondary">
           <Highlight className="javascript" style={{ fontSize: 2 }}>
-  {`const action: {dispatch: Function, getState: Function} = (dispatch, getState) =>
-      dispatch({ type: ACTION_TYPE_NAME })
-  /*
+  {`/*
   1. Una acción thunk es una acción que retorna una función
   2. Permite aplicar un delay y dispachar una nueva acción
   4. Reciben por argumento un dispatch y un getState
   3. Un thunk no retorna un objeto plano
   */
+  const action: {dispatch: Function, getState: Function} = (dispatch, getState) =>
+      dispatch({ type: ACTION_TYPE_NAME })
   `}
             </Highlight>
+        </Slide>
+
+        <Slide transition={["slide"]} bgColor="secondary">
+          <Text
+            margin="10px 0 0"
+            textColor="tertiary"
+            textFont="secondary"
+            textSize="26"
+          >
+          git checkout -b master
+          </Text>
         </Slide>
 
         <Slide transition={["slide"]} bgColor="primary" bgImage="./images/galaxy.webp">
@@ -687,6 +707,19 @@ random.next() // { value: 5, done: true }
         </Slide>
 
         <Slide transition={["slide"]} bgColor="secondary">
+          <Highlight className="javascript" style={{ fontSize: 2 }}>
+{`/*
+1. es una función
+2. es iterable
+3. utilizamos yield para generar valores
+3. no devuelven siempre lo mismo (función impura)
+*/
+`}
+
+            </Highlight>
+        </Slide>
+
+        <Slide transition={["slide"]} bgColor="secondary">
             <Text
                 margin="10px 0 0"
                 textColor="primary"
@@ -808,7 +841,7 @@ function* fetchProducts() {
               </Highlight>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="primary">
+        <Slide transition={["slide"]} bgColor="primary">
             <img src={"images/pokemon.gif"} />
         </Slide>
 
@@ -924,7 +957,17 @@ export function* setDetailSaga() {
 
               </Highlight>
           </Slide>
-
+          <Slide transition={["slide"]} bgColor="secondary">
+          <Text
+                margin="10px 0 0"
+                textColor="tertiary"
+                textFont="secondary"
+                textSize="26"
+              >
+              fork()<br/><br/>
+            </Text>
+            <img src="/images/api-fork.png" alt="" width="900" />
+          </Slide>
 
           <Slide transition={["slide"]} bgColor="secondary">
             <Text
@@ -1025,6 +1068,14 @@ export default escapeSaga
 `}
 
               </Highlight>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary">
+            <img src={"images/mapa-saga.png"} width="600" />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary">
+            <img src={"images/mapa-channel.png"} width="800" />
           </Slide>
 
 
@@ -1312,6 +1363,29 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
               </Highlight>
           </Slide>
 
+          <Slide transition={["slide"]} bgColor="primary" bgImage="./images/sky.png">
+          
+          <Text
+                margin="10px 0 0"
+                textColor="secondary"
+                textFont="secondary"
+                textSize="26"
+              >
+              conclusiones
+            </Text>
+
+            <Highlight className="javascript" style={{ fontSize: 2 }}>
+{`1. organiza los side effects
+2. action creators planas
+3. simplicidad en asincronismo complejo
+4. estilo declarativo
+5. eventos externos a redux
+6. simplicidad de testeo (side effects) 
+`}
+
+              </Highlight>
+
+          </Slide>
 
           <Slide transition={["slide"]} bgColor="primary" bgImage="./images/end.gif">
           
