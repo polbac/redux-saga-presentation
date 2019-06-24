@@ -28,7 +28,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      href="https://fonts.googleapis.com/css?family=Days+One"
       rel="stylesheet"
     />
   </head>
@@ -36,6 +36,12 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <style>
+@font-face {
+        font-family: 'HelveticaNeue Black';
+        src: url('/HelveticaNeue-MediumExt.woff2') format('woff2'),
+             url('/HelveticaNeue-MediumExt.woff') format('woff');
+}
+
       .blink {
         animation: blink-animation 0.5s steps(5, start) infinite;
         -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
@@ -59,10 +65,9 @@
         }
       }
 
-      
-
 
       body {
+              font-family: 'HelveticaNeue Black';
   -webkit-perspective: 500px;
           perspective: 500px;
 }
@@ -75,7 +80,7 @@
           position: absolute;
           width: 100%;
           left: 50%;
-          font-family: arial, helvetica;
+          font-family: 'HelveticaNeue Black', arial, helvetica;
           font-weight: bold;
           
 }
@@ -272,7 +277,11 @@
   }
 }
 
-    
+    code {
+            font-size:26px;
+            overflow: auto;
+            max-height: 90vh;
+    }
 
     </style>
   </body>
