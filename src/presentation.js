@@ -223,7 +223,7 @@ export default class Presentation extends React.Component {
             textFont="secondary"
             textSize="30"
           >redux<br/>
-            (store, actions, action creators, comp. connected)
+            (store, actions, action creators, connect())
             </Text>
           
         </Slide>
@@ -829,7 +829,7 @@ sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 
             <img src='/images/papper.png' width="600" />
             <br/>
             <br/>
-            <a style={{ fontSize:30, color: 'white' }} target='_blank' href="http://www.cs.cornell.edu/andru/cs711/3002fa/reading/sagas.pdf">www.cs.cornell.edu/andru/cs711/3002fa/reading/sagas.pdf</a>
+            <a style={{ fontSize:30, color: 'white' }} target='_blank' href="http://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf">www.cs.cornell.edu/andru/cs711/3002fa/reading/sagas.pdf</a>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="secondary">
@@ -939,11 +939,20 @@ random.next() // { value: 5, done: true }
         </Slide>
 
         <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+        <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="tertiary"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/pull.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               5
             </Text>
@@ -959,7 +968,7 @@ random.next() // { value: 5, done: true }
           </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
-            
+            <img src='/images/first.webp' />
             <Text
                 margin="10px 0 0"
                 textColor="tertiary"
@@ -987,7 +996,7 @@ random.next() // { value: 5, done: true }
 
   function* logger(action) {
       const state = yield select() // select() == getState()
-      logLib.info('Next Sttate', state)
+      logLib.info('Next State', state)
     })
   }
 
@@ -1042,11 +1051,20 @@ function* watchIncrement() {
 
 
           <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+          <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="black"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/future.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               6
             </Text>
@@ -1245,11 +1263,20 @@ export function* setDetailSaga() {
           </Slide>
 
           <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+          <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="black"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/external.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               7
             </Text>
@@ -1368,11 +1395,20 @@ export default escapeSaga
 
 
           <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+          <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="black"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/cancel.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               8
             </Text>
@@ -1420,11 +1456,20 @@ function* watchFetch() {
           </Slide>
 
           <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+          <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="black"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/test.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'contain',
+                  marginBottom: 50
+                 }}
               >
               9
             </Text>
@@ -1667,6 +1712,19 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 `}
 
               </Highlight>
+          </Slide>
+
+          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
+          <Text
+            margin="10px 0 0"
+            textColor="tertiary"
+            textFont="secondary"
+            textSize="30"
+          >
+            conclusiones
+          </Text>
+
+          <img/>
           </Slide>
 
           <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/sky.png">
