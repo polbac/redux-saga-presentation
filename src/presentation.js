@@ -184,6 +184,13 @@ export default class Presentation extends React.Component {
             get start!
           </Text>
         </Slide>
+
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/why.png" width="300" alt="" />
+        </Slide>
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/troll.jpg" width="300" alt="" />
+        </Slide>
         <Slide transition={["slide"]} bgColor="tertiary">
           <img src={"images/pokemon.gif"} />
           <Text
@@ -1598,11 +1605,20 @@ test('Saga list', async () => {
 
 
           <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+          <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="black"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/ssr.webp) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               10
             </Text>
