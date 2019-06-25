@@ -849,11 +849,20 @@ sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 
           
 
         <Slide transition={["slide"]} bgColor="secondary">
-            <Text
+        <Text
                 margin="10px 0 0"
-                textColor="primary"
+                textColor="white"
                 textFont="secondary"
                 textSize="56"
+                style={{ 
+                  background: 'url(/images/effect.gif) center',
+                  height: 200,
+                  width: 200,
+                  margin: 'auto',
+                  lineHeight: '200px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
               >
               3
             </Text>
@@ -1732,18 +1741,24 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
           <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-            conclusiones
-          </Text>
-
-          <img/>
+                textColor="white"
+                textFont="secondary"
+                textSize="56"
+                style={{ 
+                  background: 'url(/images/think.gif) center',
+                  height: 300,
+                  width: 600,
+                  margin: 'auto',
+                  lineHeight: '300px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
+              >
+              conslusiones
+            </Text>
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/sky.png">
+          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/bueno.webp">
           
              <Text
                 margin="10px 0 0"
@@ -1767,11 +1782,11 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/sky.png">
+          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
           
           <Text
              margin="10px 0 0"
-             textColor="secondary"
+             textColor="white"
              textFont="secondary"
              textSize="26"
            >
