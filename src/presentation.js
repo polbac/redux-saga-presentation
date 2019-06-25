@@ -1266,7 +1266,7 @@ export function* setDetailSaga() {
 
               </Highlight>
           </Slide>
-          <Slide transition={["slide"]} bgColor="secondary">
+          <Slide transition={["slide"]} bgColor="secondary" bgImage="./images/fork.webp">
           <Text
                 margin="10px 0 0"
                 textColor="tertiary"
@@ -1616,7 +1616,7 @@ test('Saga list', async () => {
           <Slide transition={["slide"]} bgColor="secondary">
           <Text
                 margin="10px 0 0"
-                textColor="black"
+                textColor="white"
                 textFont="secondary"
                 textSize="56"
                 style={{ 
