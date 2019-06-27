@@ -243,7 +243,7 @@ export default class Presentation extends React.Component {
             textFont="secondary"
             textSize="30"
           >redux<br/>
-            (store, actions, action creators, reducers)
+            (store, actions, action creators, dispatch, reducers)
             </Text>
           
         </Slide>
@@ -324,7 +324,7 @@ dispatch(loginUser('polbac', 'platanos'))
             textFont="secondary"
             textSize="30"
           >
-            reducer:
+            reducers:
           </Text>
           <Text
             margin="10px 0 0"
@@ -755,7 +755,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 )
 
-sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 🚀
+sagaMiddleware.run(miFirstSaga) // tenemos que darle run para que arranque 🚀
 `}
 
             </Highlight>
@@ -968,7 +968,7 @@ random.next() // { value: 5, done: true }
   }
 
   function* watchLog() {
-    yield takeEvery('LOG_STATE', logger) // escucha la acción LOG_STATE
+    yield takeEvery('LOG_STATE', logger) // escucha el patrón LOG_STATE (action)
   }
 
   `}
@@ -1624,7 +1624,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 700 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
+          <Slide contentStyles={{ maxWidth: 850 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
           
           <Text
              margin="10px 0 0"
@@ -1639,6 +1639,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 {`1. una nueva lib = + peso
 2. un nuevo patrón a aprender
 3. server side rendering más complejo
+4. sintaxis más restringida (map(), filter(), etc)
 `}
 
            </Highlight>
