@@ -383,7 +383,7 @@ function reducer(state = initState, action) {
           </Text>
         </Slide>
 
-        
+
 
         <Slide transition={["slide"]} bgColor="secondary">
           <img src="images/1.png" alt="" />
@@ -396,8 +396,6 @@ function reducer(state = initState, action) {
         <Slide transition={["slide"]} bgColor="secondary">
           <img src="images/3.png" alt="" />
         </Slide>
-
-        
 
 
         <Slide transition={["slide"]} bgColor="secondary">
@@ -412,19 +410,11 @@ function reducer(state = initState, action) {
           <img src="images/store.png" alt="" width="1000" />
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/graph1.png" alt="" height="700" />
-        </Slide>
-
-        <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/graph2.png" alt="" height="700" />
-        </Slide>
 
         <Slide transition={["slide"]} bgColor="tertiary">
           <img src="images/graph3.png" alt="" height="700" />
         </Slide>
 
-      
         <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
         <Text
             margin="10px 0 0"
@@ -459,6 +449,12 @@ class Offline extends React.Component {
         </Slide>
 
 
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/graph2.png" alt="" height="700" />
+        </Slide>
+
+        
+
         <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
         <Text
             margin="10px 0 0"
@@ -488,6 +484,18 @@ class Offline extends React.Component {
 `}
           </Highlight>
         </Slide>
+        
+
+        
+
+        
+
+        
+
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/graph1.png" alt="" height="700" />
+        </Slide>
+       
 
         <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
         <Text
@@ -620,6 +628,10 @@ const fetchList = () => {
         </Slide>
 
         <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/middleware.jpeg" alt="" width="600" />
+        </Slide>
+
+        <Slide transition={["slide"]} bgColor="tertiary">
         <Text
             margin="10px 0 0"
             textColor="primary"
@@ -652,9 +664,7 @@ const fetchList = () => {
 
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/middleware.jpeg" alt="" width="600" />
-        </Slide>
+        
 
         <Slide transition={["slide"]} bgColor="secondary">
           <Text
@@ -825,7 +835,7 @@ sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 
             <Highlight className="javascript" style={{ fontSize: 4 }}>
 {`    
 import {
-  take, takeEvery, select, put, call, cancel, fork
+  take, takeEvery, select, put, call, cancel, fork, all
 } from 'redux-saga/effects'
 
 `}
@@ -978,6 +988,7 @@ random.next() // { value: 5, done: true }
             <Highlight className="javascript" >
   {`    
 import { delay, put, select } from 'redux-saga/effects'
+import { setValue } from '../actions'
 
 function* waitAndIncrement(action) {
     const { value } = yield select()
