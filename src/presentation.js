@@ -86,7 +86,7 @@ export default class Presentation extends React.Component {
 
           <Text
             margin="10px"
-            textColor="primary"
+            textColor="yellow"
             textFont="secondary"
             textSize="30"
           >
@@ -94,24 +94,24 @@ export default class Presentation extends React.Component {
           </Text>
           <Text
             margin="10px 0 0"
-            textColor="primary"
+            textColor="yellow"
             textFont="secondary"
             textSize="30"
           >
-            medium . github . fb . instg
+            lnkd . medium . github . fb . instg
           </Text>
         </Slide>
         <Slide transition={["slide"]} bgColor="tertiary">
+        <Text margin="10px 0 0" textColor="primary" size={0.5}>
+            <img width="250" src="/images/troca.png" />
+          </Text>
           <Text
             margin="10px 0 0"
             textColor="primary"
             textFont="secondary"
-            textSize="30"
+            textSize="40"
           >
-            working at
-          </Text>
-          <Text margin="10px 0 0" textColor="primary" size={0.5}>
-            <img src="https://www.trocafone.com/assets/img/global/common/logo.png" />
+            working at trocafone
           </Text>
         </Slide>
         <Slide transition={["slide"]} bgColor="tertiary">
@@ -120,7 +120,7 @@ export default class Presentation extends React.Component {
             margin="10px 0 0"
             textColor="primary"
             textFont="secondary"
-            textSize="30"
+            textSize="40"
           >
             buy > refurbish > sale
           </Text>
@@ -135,12 +135,12 @@ export default class Presentation extends React.Component {
           >
             <img
               src="/images/suricata.webp"
-              width={300}
+              width={500}
             />
             <br />
             <br />
             <br />
-            suricata
+            suricata team (ecommerce)
           </Text>
 
           <Text margin="10px 0 0" textColor="primary" textSize="30">
@@ -176,7 +176,7 @@ export default class Presentation extends React.Component {
         >
           <Text
             margin="10px 0 0"
-            textColor="secondary"
+            textColor="white"
             textFont="secondary"
             textSize="66"
             className="blink"
@@ -185,19 +185,32 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/why.png" width="300" alt="" />
-        </Slide>
-        <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/troll.jpg" width="300" alt="" />
-        </Slide>
+        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
+          <Text
+                textColor="white"
+                textFont="secondary"
+                textSize="56"
+                style={{ 
+                  background: 'url(/images/disclaimer.webp) center',
+                  height: 300,
+                  width: 900,
+                  margin: 'auto',
+                  lineHeight: '300px',
+                  backgroundSize: 'cover',
+                  marginBottom: 50
+                 }}
+              >
+              disclaimer
+            </Text>
+          </Slide>
+
         <Slide transition={["slide"]} bgColor="tertiary">
           <img src={"images/pokemon.gif"} />
           <Text
             margin="10px 0 0"
             textColor="primary"
             textFont="secondary"
-            textSize="30"
+            textSize="50"
             className="blink"
           >
             pokeapi.co
@@ -230,9 +243,122 @@ export default class Presentation extends React.Component {
             textFont="secondary"
             textSize="30"
           >redux<br/>
-            (store, actions, action creators, connect())
+            (store, actions, action creators, reducers)
             </Text>
           
+        </Slide>
+
+        
+
+        <Slide transition={["slide"]} bgColor="white">
+          <Text
+            margin="10px 0 0"
+            textColor="primary"
+            textFont="secondary"
+            textSize="30"
+          >
+            store:
+          </Text>
+          <Text
+            margin="10px 0 0"
+            textColor="secondary"
+            textFont="secondary"
+            textSize="25"
+          >
+            estado global de la aplicación
+          </Text>
+          
+          <Highlight className="javascript" style={{ textAlign: "left" }}>
+{`
+const initState = {
+    session: {
+      username: 'polbac',
+      email: 'polbac@gmail.com'
+    },
+    articles: []
+};
+            `}
+          </Highlight>
+        </Slide>
+
+        <Slide transition={["slide"]} bgColor="white">
+          <Text
+            margin="10px 0 0"
+            textColor="primary"
+            textFont="secondary"
+            textSize="30"
+          >
+            actions & action creators:
+          </Text>
+          <Text
+            margin="10px 0 0"
+            textColor="secondary"
+            textFont="secondary"
+            textSize="25"
+          >
+            cargas de información que se envian desde la aplicación hasta el store
+          </Text>
+          
+          <Highlight className="javascript" style={{ textAlign: "left" }}>
+{`
+const LOGIN = 'LOGIN'
+
+function loginUser(username, password) {
+  return {
+    type: LOGIN,
+    username,
+    password,
+  }
+}
+
+dispatch(loginUser('polbac', 'platanos'))
+`}
+          </Highlight>
+        </Slide>
+
+
+        <Slide transition={["slide"]} bgColor="white">
+          <Text
+            margin="10px 0 0"
+            textColor="primary"
+            textFont="secondary"
+            textSize="30"
+          >
+            reducer:
+          </Text>
+          <Text
+            margin="10px 0 0"
+            textColor="secondary"
+            textFont="secondary"
+            textSize="25"
+          >
+            especifican como cambia el estado de la aplicación a partir de acciones
+          </Text>
+          
+          <Highlight className="javascript" style={{ textAlign: "left" }}>
+{`
+function reducer(state = initState, action) {
+  switch (action.type) {
+    case SAVE_SESSION: 
+      return {
+        ...state,
+        session: {
+          username: action.username,
+          email: action.email,
+        }
+
+      }
+    // más 'case' con accciones
+  }
+
+  return state
+}
+            `}
+          </Highlight>
+        </Slide>
+
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/middleware.jpeg" alt="" width="600" />
         </Slide>
 
         <Slide transition={["slide"]} bgColor="secondary">
@@ -251,7 +377,7 @@ export default class Presentation extends React.Component {
             margin="10px 0 0"
             textColor="tertiary"
             textFont="secondary"
-            textSize="26"
+            textSize="36"
           >
           git checkout -b feature/react-redux
           </Text>
@@ -271,166 +397,34 @@ export default class Presentation extends React.Component {
           <img src="images/3.png" alt="" />
         </Slide>
 
-        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-        <Text
-                margin="10px 0 0"
-                textColor="tertiary"
-                textFont="secondary"
-                textSize="26"
-              >
-              redux store
-            </Text>
-          <Highlight className="javascript" style={{ textAlign: "left" }}>
-{`
-const initState = {
-    preloading: true,
-    list: [],
-    detailId: null,
-    offline: false,
-};
-            `}
-          </Highlight>
-        </Slide>
         
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
-        <Text
-                margin="10px 0 0"
-                textColor="tertiary"
-                textFont="secondary"
-                textSize="26"
-              >
-              reducer
-            </Text>
-          <Highlight className="javascript" style={{ textAlign: "left" }}>
-{`export function reducer(state = initState, action) {
-    const newState = { ...state };
-    switch (action.type) {
-        case SET_PRELOAD:
-            newState.preloading = action.state;
-            break;
 
-        case SET_LIST:
-            newState.list = action.list;
-            break;
 
-        case SET_ITEM_DETAIL:
-            newState.list = newState.list.map((item, index) =>
-                index === action.id ? action.data : item);
-            break;
-
-        case SELECT_ITEM:
-            newState.detailId = action.index;
-            break;
-
-        case SET_OFFLINE:
-            newState.offline = action.offline;
-            break;
-    }
-
-    return newState;
-}
-`}
-          </Highlight>
-        </Slide>
-
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
+        <Slide transition={["slide"]} bgColor="secondary">
         <Text
             margin="10px 0 0"
             textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
-          action creators
+          redux<br/><br/>
           </Text>
-          <Highlight className="javascript" style={{ textAlign: "left" }}>
-            {`
-export const setPreload = state => ({ // cambia el estado del spinner
-    type: SET_PRELOAD,
-    state,
-});
-
-export const setList = list => ({ // guarda el listado
-    type: SET_LIST,
-    list,
-});
-
-export const setItemDetail = (id, data) => ({ // guarda el detail
-    type: SET_ITEM_DETAIL,
-    id,
-    data,
-});
-            `}
-          </Highlight>
+          <img src="images/store.png" alt="" width="1000" />
         </Slide>
 
-        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-        <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-          action creators
-          </Text>
-          <Highlight className="javascript" style={{ textAlign: "left" }}>
-            {`
-export const selectItem = (index) => ({  // selecciona un item a visualizar
-    type: SELECT_ITEM,
-    index,
-});
-
-export const setOffline = offline => ({  // guarda el estado de conexíon a internet
-    type: SET_OFFLINE,
-    offline,
-});
-            `}
-          </Highlight>
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/graph1.png" alt="" height="700" />
         </Slide>
 
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
-        <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-          fetch en ListComponent
-          </Text>
-          <Highlight className="javascript" style={{ fontSize: 4 }}>
-            {`
-class List extends React.Component {
-
-  componentDidMount() {
-    const { showSpinner, hideSpinner, setList } = this.props;
-    
-    showSpinner();
-    
-    fetch(API_LIST_URL)
-      .then(res => res.json())
-      .then(list => {
-        hideSpinner();
-        setList(list.results); // guarda el listado
-        this.loadDetails();
-      });
-  }
-
-  loadDetails() {
-    const { list, setItemDetail } = this.props;
-    
-    list.map((item, index) =>
-      fetch(item.url)
-        .then(res => res.json())
-        .then(item => {
-          setItemDetail(index, item); // guarda en el store el detail
-        })
-    );
-  }
-
-            `}
-          </Highlight>
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/graph2.png" alt="" height="700" />
         </Slide>
 
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/graph3.png" alt="" height="700" />
+        </Slide>
 
+      
         <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
         <Text
             margin="10px 0 0"
@@ -488,10 +482,52 @@ class Offline extends React.Component {
   onKeyDown(event) {
     const evt = event || window.event;
     if (evt.keyCode === this.ESC_KEY_EVENT) {
-      this.props.close();
+      this.props.selectItem(null);
     }
   }
 `}
+          </Highlight>
+        </Slide>
+
+        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
+        <Text
+            margin="10px 0 0"
+            textColor="tertiary"
+            textFont="secondary"
+            textSize="30"
+          >
+          fetch en ListComponent
+          </Text>
+          <Highlight className="javascript" style={{ fontSize: 4 }}>
+{`class List extends React.Component {
+
+  componentDidMount() {
+    const { setPreload, setList } = this.props;
+    
+    setPreload(true);
+    
+    fetch(API_LIST_URL)
+      .then(res => res.json())
+      .then(list => {
+        setPreload(false);
+        setList(list.results); // guarda el listado
+        this.loadDetails();
+      });
+  }
+
+  loadDetails() {
+    const { list, setItemDetail } = this.props;
+    
+    list.map((item, index) =>
+      fetch(item.url)
+        .then(res => res.json())
+        .then(item => {
+          setItemDetail(index, item); // guarda en el store el detail por índice
+        })
+    );
+  }
+
+            `}
           </Highlight>
         </Slide>
 
@@ -539,7 +575,7 @@ const fetchList = () => {
 
           <Text
             margin="10px 0 0"
-            textColor="gray"
+            textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
@@ -548,7 +584,7 @@ const fetchList = () => {
 
           <Text
             margin="10px 0 0"
-            textColor="gray"
+            textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
@@ -557,7 +593,7 @@ const fetchList = () => {
 
           <Text
             margin="10px 0 0"
-            textColor="gray"
+            textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
@@ -566,7 +602,7 @@ const fetchList = () => {
 
           <Text
             margin="10px 0 0"
-            textColor="gray"
+            textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
@@ -575,137 +611,49 @@ const fetchList = () => {
 
           <Text
             margin="10px 0 0"
-            textColor="gray"
+            textColor="tertiary"
             textFont="secondary"
             textSize="30"
           >
-            ...
+            redux-saga
           </Text>
         </Slide>
 
         <Slide transition={["slide"]} bgColor="tertiary">
-          <img src="images/middleware.jpeg" alt="" width="600" />
-        </Slide>
-
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
         <Text
             margin="10px 0 0"
-            textColor="tertiary"
+            textColor="primary"
             textFont="secondary"
             textSize="30"
           >
-            instalar middleware
+            middleware
           </Text>
-          <Highlight className="javascript" style={{ fontSize: 4 }}>
-            {`
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import rootReducer from './reducers/index'
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk),
-)
-
-            `}
-          </Highlight>
-        </Slide>
-
-        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
           <Text
             margin="10px 0 0"
-            textColor="tertiary"
+            textColor="gray"
             textFont="secondary"
-            textSize="30"
+            textSize="26"
           >
-            thunk en programación funcional
+            "proporciona un punto de extensión para terceros entre el envío de una acción y el momento en que alcanza el reducer"
           </Text>
-        <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`
-const sumar = (x, y) => x + y
-
-const hacerAlgo = (_thunkSuma) => {
-  console.log('voy a hacer mates')
-  console.log('ahora voy a sumar', _thunkSuma())
-}
-
-const thunkSuma = () => sumar(10, 30)
-
-hacerAlgo(thunkSuma)
-
-`}
-          </Highlight>
         </Slide>
 
-
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="/images/capa.webp" />
         <Text
             margin="10px 0 0"
-            textColor="tertiary"
+            textColor="primary"
             textFont="secondary"
             textSize="30"
           >
-            redux-thunk
+            abrimos una nueva capa en nuestra aplicación
           </Text>
 
-      
-
-          <Highlight className="javascript" style={{ fontSize: 4 }}>
-            {`
-export const fetchItems = (dispatch, getState) =>{
-  fetch(API_LIST_URL)
-    .then(res => res.json())
-    .then(list => {
-      dispatch(setList(list.results))
-    })
-}
-            `}
-          </Highlight>
         </Slide>
 
-        
-
-        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-        <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-          action creator plano
-          </Text>
-        <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`/*
-1. Un action creator devuelve un objeto
-2. El objeto tiene un type y más información
-*/
-
-const action: {type: string} = ({ type: ACTION_TYPE_NAME, ...data })
-`}
-          </Highlight>
-        </Slide>
-
-        <Slide contentStyles={{ maxWidth: 1300 }}  transition={["slide"]} bgColor="secondary">
-        <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-          action creator thunk
-          </Text>
-          <Highlight className="javascript" style={{ fontSize: 4 }}>
-  {`/*
-1. Una acción thunk es una acción que retorna una función
-2. Permite aplicar un delay y dispachar una nueva acción
-4. Reciben por argumento un dispatch y un getState
-3. Un thunk no retorna un objeto plano
-*/
-
-const action: {dispatch: Function, getState: Function} = (dispatch, getState) =>
-      dispatch({ type: ACTION_TYPE_NAME, ...data })
-  `}
-            </Highlight>
+        <Slide transition={["slide"]} bgColor="tertiary">
+          <img src="images/middleware.jpeg" alt="" width="600" />
         </Slide>
 
         <Slide transition={["slide"]} bgColor="secondary">
@@ -713,7 +661,7 @@ const action: {dispatch: Function, getState: Function} = (dispatch, getState) =>
             margin="10px 0 0"
             textColor="tertiary"
             textFont="secondary"
-            textSize="26"
+            textSize="36"
           >
           git checkout -b master
           </Text>
@@ -828,7 +776,7 @@ sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 
                 textFont="secondary"
                 textSize="30"
               >
-              tiene un background en backend & microservicios
+              tiene un background en sistemas distribuidos
             </Text>
           </Slide>
 
@@ -876,7 +824,9 @@ sagaMiddleware.run(miFirstSaga) // pero tenemos que darle run para que arranque 
             </Text>
             <Highlight className="javascript" style={{ fontSize: 4 }}>
 {`    
-import * from 'redux-saga/effects'
+import {
+  take, takeEvery, select, put, call, cancel, fork
+} from 'redux-saga/effects'
 
 `}
 
@@ -941,11 +891,30 @@ random.next() // { value: 5, done: true }
             </Highlight>
         </Slide>
 
+
+        <Slide transition={["slide"]} bgColor="secondary">
+          <Text
+            margin="10px 0 0"
+            textColor="tertiary"
+            textFont="secondary"
+            textSize="30"
+          >
+          podemos iterarlos
+          </Text>
+          <Highlight className="javascript" style={{ fontSize: 4 }}>
+{`for (const n of randomNumbers(5)) {
+    console.log(n)
+}
+`}
+
+            </Highlight>
+        </Slide>
+
         <Slide transition={["slide"]} bgColor="secondary">
           <Highlight className="javascript" style={{ fontSize: 4 }}>
 {`/*
-1. es una función
-2. es iterable
+1. es un creador de iterators
+2. el iterator es iterable
 3. utilizamos yield para generar valores
 3. no devuelven siempre lo mismo (función impura)
 */
@@ -954,34 +923,6 @@ random.next() // { value: 5, done: true }
             </Highlight>
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="secondary">
-        <Text
-                margin="10px 0 0"
-                textColor="tertiary"
-                textFont="secondary"
-                textSize="56"
-                style={{ 
-                  background: 'url(/images/pull.webp) center',
-                  height: 200,
-                  width: 200,
-                  margin: 'auto',
-                  lineHeight: '200px',
-                  backgroundSize: 'cover',
-                  marginBottom: 50
-                 }}
-              >
-              5
-            </Text>
-            <Text
-                margin="10px 0 0"
-                textColor="tertiary"
-                textFont="secondary"
-                textSize="30"
-              >
-              utilizamos un patrón de <span style={{ color: 'yellow' }}>pull & put</span>
-            </Text>
-
-          </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
             <img src='/images/first.webp' />
@@ -1017,7 +958,7 @@ random.next() // { value: 5, done: true }
   }
 
   function* watchLog() {
-    yield takeEvery('LOG_STATE', logger)
+    yield takeEvery('LOG_STATE', logger) // escucha la acción LOG_STATE
   }
 
   `}
@@ -1090,7 +1031,7 @@ function* watchIncrement() {
                 textFont="secondary"
                 textSize="30"
               >
-              utilizamos <span style={{ color: 'yellow' }}>call</span> para ejecutar promises
+              utilizamos <span style={{ color: 'yellow' }}>call()</span> para ejecutar un metodo<br/>que devuelva una promise
             </Text>
 
           </Slide>
@@ -1123,29 +1064,7 @@ function* fetchProducts() {
         </Slide>
 
 
-        <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-        <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-            store
-          </Text>
-            <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`
-const initState = {
-    preloading: true,
-    list: [],
-    detailId: null,
-    offline: false,
-};
-`}
-
-              </Highlight>
-          </Slide>
-
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
+          <Slide contentStyles={{ maxWidth: 600 }} transition={["slide"]} bgColor="secondary">
           <Text
             margin="10px 0 0"
             textColor="tertiary"
@@ -1155,38 +1074,10 @@ const initState = {
             action cretors
           </Text>
             <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`export const setList = list => ({
-    type: SET_LIST,
-    list,
-});
-
-export const setItemDetail = (id, data) => ({
-    type: SET_ITEM_DETAIL,
-    id,
-    data,
-});
-
-export const selectItem = (index) => ({
-    type: SELECT_ITEM,
-    index,
-});
-
-export const unselectItem = () => ({
-    type: UNSELECT_ITEM,
-});
-
-export const setOffline = offline => ({
-    type: SET_OFFLINE,
-    offline,
-});
-
-// new
+{`// new
 export const fetchList = () => ({
     type: FETCH_LIST,
 });
-
-
-
 `}
               </Highlight>
           </Slide>
@@ -1245,6 +1136,7 @@ export function* handleDetailRequest(index, url) {
     try {
       const detail = yield call(getDetail, url);
       yield put(setItemDetail(index, detail));
+      return true
     } catch (err) {
       // handle error
     }
@@ -1258,10 +1150,14 @@ export function* setDetailSaga() {
     const { images } = yield select();
 
     for (let i = 0; i < images.list.length; i++) {
-      yield fork(handleDetailRequest, i, images.list[i].url) // no bloqueante 🔥
+      yield fork(handleDetailRequest, i, images.list[i].url) // ramifica 🔥
     }
   }
 }
+
+
+
+
 `}
 
               </Highlight>
@@ -1269,13 +1165,13 @@ export function* setDetailSaga() {
           <Slide transition={["slide"]} bgColor="secondary" bgImage="./images/fork.webp">
           <Text
                 margin="10px 0 0"
-                textColor="tertiary"
+                textColor="black"
                 textFont="secondary"
-                textSize="26"
+                textSize="36"
               >
               fork()<br/><br/>
             </Text>
-            <img src="/images/api-fork.png" alt="" width="900" />
+            <img src="/images/api-fork.png" alt="" width="1000" />
           </Slide>
 
           <Slide transition={["slide"]} bgColor="secondary">
@@ -1309,6 +1205,8 @@ export function* setDetailSaga() {
 
           <Slide transition={["slide"]} bgColor="tertiary">
             <img src='/images/socket.png' width="250" /><br/><br/>
+            <img src='/images/threejs.png' width="250" /><br/><br/>
+            <img src='/images/game.jpg' width="250" /><br/><br/>
             <img src='/images/winamp.png' width="250" /><br/><br/>
             <img src='/images/video.jpg' width="250" /><br/><br/>
             <Text
@@ -1338,10 +1236,6 @@ import { setOffline } from '../ducks/images'
 const internetStatusChannel = eventChannel(emitter => {
     window.addEventListener("online", emitter);
     window.addEventListener("offline", emitter);
-    return () => {
-        window.removeEventListener('online')
-        window.removeEventListener('offline')
-    }
 })
 
 function* internetStatusSaga() {
@@ -1355,58 +1249,6 @@ export default internetStatusSaga
 `}
 
               </Highlight>
-          </Slide>
-
-
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-          <Text
-                margin="10px 0 0"
-                textColor="tertiary"
-                textFont="secondary"
-                textSize="26"
-              >
-              escape
-            </Text>
-<Highlight className="javascript" style={{ fontSize: 4 }}>
-{`import { eventChannel } from 'redux-saga'
-import { take, put } from 'redux-saga/effects'
-import { SELECT_ITEM, unselectItem } from '../ducks/images'
-
-const ESCAPE_EVENT = 'ESCAPE_EVENT'
-const ESC_KEY_EVENT = 27;
-
-const escapeChannel = eventChannel(emitter => {
-    document.addEventListener('keydown', (event) => {
-        const evt = event || window.event;
-        if (evt.keyCode === ESC_KEY_EVENT) {
-            emitter(unselectItem())
-        }
-    });
-
-    return () => {
-        document.removeEventListener('keydown')
-    }
-})
-
-function* escapeSaga() {
-    while (true) {
-        yield take(SELECT_ITEM)
-        yield take(escapeChannel)
-        yield put(unselectItem())
-    }
-}
-export default escapeSaga
-`}
-
-              </Highlight>
-          </Slide>
-
-          <Slide transition={["slide"]} bgColor="secondary">
-            <img src={"images/mapa-saga.png"} width="600" />
-          </Slide>
-
-          <Slide transition={["slide"]} bgColor="secondary">
-            <img src={"images/mapa-channel.png"} width="800" />
           </Slide>
 
 
@@ -1441,35 +1283,60 @@ export default escapeSaga
 
 
           <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-            <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`
-import { take, put, call, fork, cancel, cancelled, delay } from 'redux-saga/effects'
+          <Text
+                margin="10px 0 0"
+                textColor="tertiary"
+                textFont="secondary"
+                textSize="26"
+              >
+              escape
+            </Text>
+<Highlight className="javascript" style={{ fontSize: 4 }}>
+{`const ESCAPE_EVENT = 'ESCAPE_EVENT'
+const ESC_KEY_EVENT = 27;
 
-function* backgroundCheck() {
-  try {
-    while (true) {
-      const response = yield call(api.fetchState)
-      put(saveState(response))
-      yield delay(5000)
-    }
-  } finally {
-    if (yield cancelled()) {
-      // backgroundCheck() fue cancelado      
-    }
-  }
+const escapeChannel = eventChannel(emitter => {
+    document.addEventListener('keydown', (event) => {
+        const evt = event || window.event;
+        if (evt.keyCode === ESC_KEY_EVENT) {
+            emitter({ type: ESCAPE_EVENT })
+        }
+    });
+})
+
+function* escapeSaga() {
+    yield take(escapeChannel)
+    yield put(unselectItem())
 }
 
-function* watchFetch() {
-  while (take(START_BACKGROUND_CHECK)) {
-    const backgroundCheckTask = yield fork(backgroundCheck)
-    yield take(STOP_BACKGROUND_CHECK)
-    yield cancel(backgroundCheckTask)
-  } 
+export default function* escapeWatcher() {
+    while(true) {
+        yield take(SELECT_ITEM)
+        const escapeTask = yield fork(escapeSaga)
+        yield take(UNSELECT_ITEM)
+        yield cancel(escapeTask)
+    }
 }
+
+
+
 `}
 
               </Highlight>
           </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary">
+            <img src={"images/mapa1.png"} width="700" />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary">
+            <img src={"images/mapa2.png"} width="800" />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary">
+            <img src={"images/mapa3.png"} width="800" />
+          </Slide>
+
 
           <Slide transition={["slide"]} bgColor="secondary">
           <Text
@@ -1607,6 +1474,10 @@ test('Saga list', async () => {
     expect(dispatchedActions).toContainEqual(setList(fakePokemonList.results));
     expect(dispatchedActions).toContainEqual(setPreload(false));
 })
+
+
+
+
 `}
 
               </Highlight>
@@ -1650,49 +1521,6 @@ test('Saga list', async () => {
             <a style={{ fontSize:30, color: 'white' }} target='_blank' href="https://github.com/zeit/next.js/tree/canary/examples/with-redux-saga">github.com/zeit/next.js/tree/canary/examples/with-redux-saga</a>
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-            <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`import withReduxSaga from 'next-redux-saga'`}
-
-              </Highlight>
-          </Slide>
-
-
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
-          <Text
-            margin="10px 0 0"
-            textColor="tertiary"
-            textFont="secondary"
-            textSize="30"
-          >
-            store
-          </Text>
-            <Highlight className="javascript" style={{ fontSize: 4 }}>
-{`import { applyMiddleware, createStore } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-
-import rootReducer, { exampleInitialState } from './reducer'
-import rootSaga from './saga'
-
-function configureStore (initialState = exampleInitialState) {
-  const sagaMiddleware = createSagaMiddleware()
-  const store = createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware([sagaMiddleware])
-  )
-
-  store.sagaTask = sagaMiddleware.run(rootSaga)
-  return store
-}
-
-export default configureStore
-
-
-`}
-
-              </Highlight>
-          </Slide>
 
           <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
           <Text
@@ -1734,6 +1562,9 @@ class MainApp extends App {
 export default withRedux(createStore)(withReduxSaga(MyApp))
 
 
+
+
+
 `}
 
               </Highlight>
@@ -1741,39 +1572,39 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
           <Text
-                textColor="white"
+                textColor="yellow"
                 textFont="secondary"
                 textSize="56"
                 style={{ 
                   background: 'url(/images/think.gif) center',
                   height: 300,
-                  width: 600,
+                  width: 900,
                   margin: 'auto',
                   lineHeight: '300px',
                   backgroundSize: 'cover',
                   marginBottom: 50
                  }}
               >
-              conslusiones
+              conclusiones personales
             </Text>
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/bueno.webp">
+          <Slide contentStyles={{ maxWidth: 900 }} transition={["slide"]} bgColor="primary" bgImage="./images/bueno.webp">
           
              <Text
                 margin="10px 0 0"
                 textColor="secondary"
                 textFont="secondary"
-                textSize="26"
+                textSize="46"
               >
               lo bueno
             </Text>
 
             <Highlight className="javascript" style={{ fontSize: 4 }}>
 {`1. organiza los side effects de manera simple
-2. action creators planos
+2. action creators planos // (no ocurre en redux-thunk)
 3. simplicidad en asincronismo complejo
-4. nueva capa en nuestra aplicacíon
+4. nueva capa en nuestra aplicación
 5. eventos externos a redux
 6. testeo de side effects
 `}
@@ -1782,13 +1613,13 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
+          <Slide contentStyles={{ maxWidth: 700 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
           
           <Text
              margin="10px 0 0"
              textColor="white"
              textFont="secondary"
-             textSize="26"
+             textSize="46"
            >
            lo malo
          </Text>
@@ -1809,9 +1640,9 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
                 margin="10px 0 0"
                 textColor="tertiary"
                 textFont="secondary"
-                textSize="30"
+                textSize="40"
               >
-              this is the end
+              the end.
             </Text>
 
           </Slide>
@@ -1823,8 +1654,12 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
                 textColor="yellow"
                 textFont="secondary"
                 textSize="56"
+                className="blink"
               >
-              gracias a todxs
+              <span style={{ background: 'black', color: 'yellow'}}>
+              GRACIAS A TODOXS
+              <br/><br/>
+              polbac@gmail.com</span>
             </Text>
 
           </Slide>
