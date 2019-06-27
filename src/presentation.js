@@ -46,15 +46,16 @@ export default class Presentation extends React.Component {
         theme={theme}
       >
         <Slide
-          transition={["slide"]}
+          transition={["fade"]}
           bgColor="primary"
-          bgImage="./images/background-3.gif"
+          bgImage="./images/space.webp"
         >
           <Text
             textFont="secondary"
             margin="10px 0 100px"
-            textColor="secondary"
+            textColor="white"
             textSize="35"
+            className="blink"
           >
             redux-saga
             <br /> & side effects
@@ -63,13 +64,13 @@ export default class Presentation extends React.Component {
           <Text
             textFont="secondary"
             margin="10px 0 100px"
-            textColor="secondary"
-            textSize="35"
+            textColor="white"
+            textSize="25"
           >
-            @reactjs_bs
+            @ React en Buenos Aires
           </Text>
         </Slide>
-        <Slide transition={["slide"]} bgColor="secondary">
+        <Slide transition={["fade"]} bgColor="secondary">
           <Text
             textFont="secondary"
             margin="10px 0 10px"
@@ -170,7 +171,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide
-          transition={["slide"]}
+          transition={["fade"]}
           bgImage="./images/start.gif"
           bgColor="tertiary"
         >
@@ -226,7 +227,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
 
-        <Slide transition={["slide"]} bgColor="secondary">
+        <Slide transition={["fade"]} bgColor="secondary">
         
         <img src="/images/react.png" width="100" align="middle" />
           <Text
@@ -361,7 +362,7 @@ function reducer(state = initState, action) {
           <img src="images/middleware.jpeg" alt="" width="600" />
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="secondary">
+        <Slide transition={["fade"]} bgColor="secondary">
           <Text
             margin="10px 0 0"
             textColor="tertiary"
@@ -677,7 +678,7 @@ const fetchList = () => {
           </Text>
         </Slide>
 
-        <Slide transition={["slide"]} bgColor="primary" bgImage="./images/galaxy.webp">
+        <Slide transition={["fade"]} bgColor="primary" bgImage="./images/galaxy.webp">
           
         <div id="ui">
         <div class="text">redux-saga</div>
@@ -1324,8 +1325,8 @@ export default function* escapeWatcher() {
     while(true) {
         yield take(SELECT_ITEM)
         const escapeTask = yield fork(escapeSaga)
-        yield take(UNSELECT_ITEM)
-        yield cancel(escapeTask)
+        yield take(UNSELECT_ITEM) // para captar cuando clickea en el [cerrar]
+        yield cancel(escapeTask) // cancela la saga que escucha el escape
     }
 }
 
@@ -1352,7 +1353,7 @@ export default function* escapeWatcher() {
           <Slide transition={["slide"]} bgColor="secondary">
           <Text
                 margin="10px 0 0"
-                textColor="black"
+                textColor="white"
                 textFont="secondary"
                 textSize="56"
                 style={{ 
@@ -1581,7 +1582,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
               </Highlight>
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 1300 }} transition={["slide"]} bgColor="secondary">
+          <Slide contentStyles={{ maxWidth: 1300 }} transition={["fade"]} bgColor="secondary">
           <Text
                 textColor="yellow"
                 textFont="secondary"
@@ -1600,7 +1601,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
             </Text>
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 900 }} transition={["slide"]} bgColor="primary" bgImage="./images/bueno.webp">
+          <Slide contentStyles={{ maxWidth: 900 }} transition={["spin"]} bgColor="primary" bgImage="./images/bueno.webp">
           
              <Text
                 margin="10px 0 0"
@@ -1624,7 +1625,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           </Slide>
 
-          <Slide contentStyles={{ maxWidth: 850 }} transition={["slide"]} bgColor="primary" bgImage="./images/bad.webp">
+          <Slide contentStyles={{ maxWidth: 650 }} transition={["spin"]} bgColor="primary" bgImage="./images/bad.webp">
           
           <Text
              margin="10px 0 0"
@@ -1639,14 +1640,14 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 {`1. una nueva lib = + peso
 2. un nuevo patrón a aprender
 3. server side rendering más complejo
-4. sintaxis más restringida (map(), filter(), etc)
+4. sintaxis más restringida
 `}
 
            </Highlight>
 
        </Slide>
 
-          <Slide transition={["slide"]} bgColor="primary" bgImage="./images/end.gif">
+          <Slide transition={["fade"]} bgColor="primary" bgImage="./images/end.gif">
           
           <Text
                 margin="10px 0 0"
@@ -1659,7 +1660,7 @@ export default withRedux(createStore)(withReduxSaga(MyApp))
 
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="primary" bgImage="./images/ttv.gif">
+          <Slide transition={["fade"]} bgColor="primary" bgImage="./images/ttv.gif">
           
           <Text
                 margin="10px 0 0"
