@@ -4,13 +4,8 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Deck,
-  Heading,
-  ListItem,
-  List,
-  Quote,
   Slide,
   Text,
-  CodePane
 } from "spectacle";
 
 import "highlight.js/styles/atom-one-dark-reasonable.css";
