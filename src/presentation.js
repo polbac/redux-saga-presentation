@@ -26,8 +26,8 @@ const theme = createTheme(
     quaternary: "#CECECE"
   },
   {
-    primary: '"Anonymous Pro", mono-space',
-    secondary: '"HelveticaNeue Black"'
+    primary: '"Anonymous Pro", monospace,',
+    secondary: '"HelveticaNeue Black", arial, helvetica, sans-serif'
   }
 );
 
